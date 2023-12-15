@@ -79,7 +79,7 @@
 				<!-- header left menu start -->
 				<ul class="ttr-header-navigation">
 					<li>
-						<a href="<?= base_url(); ?>course/dashboard" class="ttr-material-button ttr-submenu-toggle">Dashboard</a>
+						<a href="<?= base_url(); ?>course" class="ttr-material-button ttr-submenu-toggle">Dashboard User</a>
 					</li>
 					<!-- <li>
 						<a href="#" class="ttr-material-button ttr-submenu-toggle">QUICK MENU <i class="fa fa-angle-down"></i></a>

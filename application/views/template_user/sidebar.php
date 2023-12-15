@@ -37,7 +37,7 @@
 						<a href="index.html"><img src="<?= base_url(); ?>assets/images/logo-mki.png" alt=""></a>
 					</div>
                     <ul class="nav navbar-nav">	
-						<li class="active"><a href="<?= base_url(); ?>course/dashboard">Home</a></li>
+						<li class="active"><a href="<?= base_url(); ?>course">Home</a></li>
 						<li class="add-mega-menu"><a href="javascript:;">Our Courses <i class="fa fa-chevron-down"></i></a>
 							<ul class="sub-menu add-menu">
 								<li class="add-menu-left">
@@ -57,7 +57,7 @@
 						</li>
 						<?php if ($this->session->userdata('logged_in')['level'] == 1 || $this->session->userdata('logged_in')['level'] == 2) { ?>
 								<li class="nav-dashboard"><a href="<?= base_url(); ?>admin/dashboard">Manage E-Learning</a></li>
-						<?php } ?>
+						<?php }else{redirect(base_url('auth'));} ?>
 						<li class="active"><a href="<?= base_url(); ?>auth/logout">Logout</a></li>
 					
 					</ul>

@@ -7,7 +7,8 @@
 				<li><a href="<?= base_url(); ?>admin/dashboard"><i class="fa fa-home"></i>Home</a></li>
 				<li>Setup Courses</li>
 			</ul>
-		</div>	
+		</div>
+		<!-- <iframe src="<?= base_url(); ?>assets/Presentation SHE Leader Talk MKI-01.pdf#toolbar=0" width="800" height="600"></iframe>	 -->
 		<div class="row">
 			<!-- Your Profile Views Chart -->
 			<div class="col-lg-12 m-b30">
@@ -16,12 +17,15 @@
 						<a href="<?php echo base_url(); ?>admin/course/add"><button type="button" class="btn mb-1 btn-primary">Add Course</button></a> 
 					</div>
 					<div class="widget-inner">
-						 <?php 
+						<?php if ($course == NULL) { ?>
+							<center><h7>Course Not Found</h7></center>
+						<?php } ?>
+						<?php 
 						  $no = 1;
 						  foreach ($course as $row) { ?>
 						<div class="card-courses-list admin-courses">
 							<div class="card-courses-media">
-								<img src="assets/images/courses/pic1.jpg" alt=""/>
+								<img src="<?php echo base_url(); ?>assets/images/courses/pic9.jpg" alt=""/>
 							</div>
 							<div class="card-courses-full-dec">
 								<div class="card-courses-title">
@@ -29,35 +33,19 @@
 								</div>
 								<div class="card-courses-list-bx">
 									<ul class="card-courses-view">
-										<li class="card-courses-user">
-											<div class="card-courses-user-pic">
-												<img src="assets/images/testimonials/pic3.jpg" alt=""/>
-											</div>
-											<div class="card-courses-user-info">
-												<h5>Teacher</h5>
-												<h4>Keny White</h4>
-											</div>
-										</li>
 										<li class="card-courses-categories">
-											<h5>3 Categories</h5>
+											<h5>Categories</h5>
 											<h4>Backend</h4>
 										</li>
-										<li class="card-courses-review">
-											<h5>3 Review</h5>
-											<ul class="cours-star">
-												<li class="active"><i class="fa fa-star"></i></li>
-												<li class="active"><i class="fa fa-star"></i></li>
-												<li class="active"><i class="fa fa-star"></i></li>
-												<li><i class="fa fa-star"></i></li>
-												<li><i class="fa fa-star"></i></li>
-											</ul>
-										</li>
-										<li class="card-courses-stats">
-											<a href="#" class="btn button-sm green radius-xl">Pending</a>
-										</li>
-										<li class="card-courses-price">
-											<del>$190</del>
-											<h5 class="text-primary">$120</h5>
+										<li class="card-courses-list">
+											<?php if ($row->status == "Available") { ?> 
+											 	<a style="text-align: right;" class="btn button-sm blue radius-xl">Available</a>
+											<?php }else if ($row->status == "Pending") { ?>
+												<a style="text-align: right;" class="btn button-sm orange radius-xl">Pending</a>
+											<?php }else if ($row->status == "Hold") { ?>
+												<a style="text-align: right;" class="btn button-sm red radius-xl">Hold</a>
+											<?php } ?>
+											
 										</li>
 									</ul>
 								</div>
@@ -67,11 +55,13 @@
 										<p><?php echo $row->description?></p>	
 									</div>
 									<div class="col-md-12">
-										<a href="#" class="btn green radius-xl outline">Approve</a>
-										<a href="#" class="btn red outline radius-xl ">Cancel</a>
+										<a href="<?php echo base_url(); ?>admin/course/add_quiz/<?php echo encode_id($row->id);?>" class="btn green radius-xl outline">Add Quiz</a>
+										<a href="<?php echo base_url(); ?>admin/course/bank_quiz/<?php echo encode_id($row->id);?>" class="btn blue radius-xl outline">Bank Quiz</a>
+										<a href="<?php echo base_url(); ?>admin/course/certificate/<?php echo encode_id($row->id);?>" class="btn yellow radius-xl outline">Certifacate & Score</a>
+										<a href="<?php echo base_url(); ?>admin/course/edit/<?php echo encode_id($row->id);?>" class="btn orange radius-xl outline">Edit</a>
+										<a href="<?php echo base_url(); ?>admin/course/delete/<?php echo encode_id($row->id);?>" class="btn red outline radius-xl ">Delete</a>
 									</div>
 								</div>
-								
 							</div>
 						</div>
 						<?php } ?>

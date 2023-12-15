@@ -35,12 +35,6 @@
 	                </a>
 	            </li>
 				<li>
-					<a href="add-listing.html" class="ttr-material-button">
-						<span class="ttr-icon"><i class="ti-layout-accordion-list"></i></span>
-	                	<span class="ttr-label">Add listing</span>
-	                </a>
-	            </li>
-				<li>
 					<a href="#" class="ttr-material-button">
 						<span class="ttr-icon"><i class="ti-user"></i></span>
 	                	<span class="ttr-label">My Profile</span>

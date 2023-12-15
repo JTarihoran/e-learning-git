@@ -38,7 +38,7 @@ class Auth_model extends CI_Model
                                 break;
 
                             default:
-                                redirect(base_url('welcome'), 'refresh');
+                                redirect(base_url('auth'), 'refresh');
                                 break;  
                         }   
                 } else {

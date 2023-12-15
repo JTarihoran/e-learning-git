@@ -27,6 +27,11 @@
 <script src="<?= base_url(); ?>assets/js/functions.js"></script>
 <script src="<?= base_url(); ?>assets/js/contact.js"></script>
 <!-- <script src='<?= base_url(); ?>assets/vendors/switcher/switcher.js'></script> -->
+<script>
+  jQuery('#iframe').load(function(){
+    jQuery('#iframe').contents().find("#toolbarViewerRight").hide();
+  });
+</script>
 </body>
 
 </html>
